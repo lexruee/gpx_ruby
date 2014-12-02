@@ -1,7 +1,7 @@
 #GpxRuby
-GpxRuby is a simple a Gpx file reader which is not yet finished.
+GpxRuby is a simple a Gpx file reader which is not yet finished (version 0.0.0).
 
-Currently GpxRuby only parses track elements of a gpx file.
+Currently GpxRuby only parses track elements of a gpx file all the other elements are not considered.
 
 ##Install
 ```
