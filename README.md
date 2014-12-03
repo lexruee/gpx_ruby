@@ -80,7 +80,7 @@ puts segment.center_of_gravity
 puts track.center_of_gravity
 
 ```
-##Chnagelog
+##Changelog
 ###0.1.0
 - Publish GpxRuby gem under gpx_ruby.
 - Add XML class method to GpxRuby module.
