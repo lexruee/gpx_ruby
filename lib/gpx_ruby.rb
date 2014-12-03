@@ -15,6 +15,10 @@ require 'gpx_ruby/gpx/parser'
       Gpx::Parser.new(input).parse
     end
 
+    def XML(xml_string)
+      Gpx::Parser.new(xml: xml_string).parse
+    end
+
   end
 
 end

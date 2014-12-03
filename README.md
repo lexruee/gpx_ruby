@@ -1,11 +1,11 @@
 #GpxRuby
-GpxRuby is a simple a Gpx file reader which is not yet finished (version 0.0.0).
+GpxRuby is a simple a Gpx file reader which is not yet finished (version 0.0.1).
 
 Currently GpxRuby only parses track elements of a gpx file all the other elements are not considered.
 
 ##Install
 ```
-gem install GpxRuby
+gem install gpx_ruby
 ```
 
 ##Reading gpx files
@@ -58,3 +58,10 @@ puts segment.center_of_gravity
 puts track.center_of_gravity
 
 ```
+##Chnagelog
+###0.1.0
+- Publish GpxRuby gem under gpx_ruby.
+- Add XML class method to GpxRuby module.
+- Support hash as valid input for GpxRuby::Parser with options: :file, :xml, :file_path
+###0.0.0
+Publish first draft.

@@ -1,7 +1,7 @@
 require './lib/version'
 
 Gem::Specification.new do |s|
-  s.name = 'GpxRuby'
+  s.name = 'gpx_ruby'
   s.version = GpxRuby::VERSION
   s.date = '2014-12-02'
   s.summary = 'A gpx file parser for reading gpx files.'

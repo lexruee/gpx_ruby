@@ -8,8 +8,49 @@ class TestGpxParser < MiniTest::Test
   end
 
   def test_should_read_gpx_file
+    gpx_parser = GpxRuby::Gpx::Parser.new File.open('./test/run_keeper.gpx','r')
+    gpx_file = gpx_parser.parse
+    assert gpx_file.creator
+    assert gpx_file.version
+  end
+
+
+  def test_should_read_gpx_temp_file
+    xml = File.open('./test/run_keeper.gpx','r') { |f| f.read }
+    tmp_file = Tempfile.open('blah.gpx')
+    tmp_file.write xml
+    tmp_file.rewind
+    gpx_parser = GpxRuby::Gpx::Parser.new tmp_file
+    gpx_file = gpx_parser.parse
+    assert gpx_file.creator
+    assert gpx_file.version
+  end
+
+
+  def test_should_read_file_path
     gpx_parser = GpxRuby::Gpx::Parser.new './test/run_keeper.gpx'
     gpx_file = gpx_parser.parse
+    assert gpx_file.creator
+    assert gpx_file.version
+  end
+
+
+  def test_should_read_gpx_xml
+    xml = File.open('./test/run_keeper.gpx') do |f|
+      f.read
+    end
+    gpx_parser = GpxRuby::Gpx::Parser.new xml: xml
+    gpx_file = gpx_parser.parse
+    assert gpx_file.creator
+    assert gpx_file.version
+  end
+
+
+  def test_should_read_gpx_xml_using_a_shortcut
+    xml = File.open('./test/run_keeper.gpx') do |f|
+      f.read
+    end
+    gpx_file = GpxRuby::XML(xml)
     assert gpx_file.creator
     assert gpx_file.version
   end
