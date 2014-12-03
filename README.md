@@ -62,6 +62,8 @@ puts track.center_of_gravity
 ###0.1.0
 - Publish GpxRuby gem under gpx_ruby.
 - Add XML class method to GpxRuby module.
-- Support hash as valid input for GpxRuby::Parser with options: :file, :xml, :file_path
+- Support hash as valid input for GpxRuby::Gpx::Parser with options: :file, :xml, :file_path
+
 ###0.0.0
-Publish first draft.
+
+- Publish first draft.
