@@ -33,9 +33,21 @@ module GpxRuby
         doc = Nokogiri::XML(@xml)
         @gpx_node = doc.at_xpath('//xmlns:gpx')
 
+        creator = if @gpx_node.at_xpath('@creator').nil?
+          ''
+        else
+          @gpx_node.at_xpath('@creator').value
+        end
+
+        version = if @gpx_node.at_xpath('@version').nil?
+          0
+        else
+          @gpx_node.at_xpath('@version').value.to_f
+        end
+
         properties = {
-            creator: @gpx_node.at_xpath('@creator').value,
-            version: @gpx_node.at_xpath('@version').value.to_f,
+            creator: creator,
+            version: version,
             tracks: []
         }
 
