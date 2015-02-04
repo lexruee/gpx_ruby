@@ -1,5 +1,5 @@
 #GpxRuby
-GpxRuby is a simple a Gpx file reader which is not yet finished (version 0.1.0).
+GpxRuby is a simple Gpx file reader which is not yet finished (version 0.1.0).
 
 Currently GpxRuby only parses track elements of a gpx file all the other elements are not considered.
 
@@ -16,6 +16,28 @@ require 'gpx_ruby'
 gpx_file = GpxRuby::File './my_gpx_file.gpx'
 puts gpx_file.creator
 puts gpx_file.version
+
+# or read a xml string
+xml = '
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx
+  version="1.1"
+  creator="RunKeeper - http://www.runkeeper.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
+  xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1">
+	<trk>
+		<name><![CDATA[Running 10/8/14 8:24 pm]]></name>
+		<time>2014-10-08T18:24:54Z</time>
+		<trkseg>
+			<trkpt lat="46.920356000" lon="7.486769000"><ele>507.0</ele><time>2014-10-08T18:24:54Z</time></trkpt>
+			<trkpt lat="46.920307000" lon="7.486907000"><ele>507.0</ele><time>2014-10-08T18:29:31Z</time></trkpt>
+		</trkseg>
+	</trk>  
+</gpx>
+'
+gpx_file = GpxRuby::XML xml
 
 #list all tracks
 puts gpx.tracks
@@ -58,10 +80,12 @@ puts segment.center_of_gravity
 puts track.center_of_gravity
 
 ```
-##Chnagelog
+##Changelog
 ###0.1.0
 - Publish GpxRuby gem under gpx_ruby.
 - Add XML class method to GpxRuby module.
-- Support hash as valid input for GpxRuby::Parser with options: :file, :xml, :file_path
+- Support hash as valid input for GpxRuby::Gpx::Parser with options: :file, :xml, :file_path
+
 ###0.0.0
-Publish first draft.
+
+- Publish first draft.
