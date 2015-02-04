@@ -80,12 +80,17 @@ puts segment.center_of_gravity
 puts track.center_of_gravity
 
 ```
-##Changelog
-###0.1.0
+## Changelog
+### 0.2.0
+
+- Use default values for version and creator attribute.
+
+### 0.1.0
+
 - Publish GpxRuby gem under gpx_ruby.
 - Add XML class method to GpxRuby module.
 - Support hash as valid input for GpxRuby::Gpx::Parser with options: :file, :xml, :file_path
 
-###0.0.0
+### 0.0.0
 
 - Publish first draft.
